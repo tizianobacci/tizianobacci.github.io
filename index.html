@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiziano Bacci | Operations Research</title>
+  <meta name="description" content="Academic profile and curriculum website of Tiziano Bacci, Senior Research Scientist in Operations Research at IASI-CNR." />
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --surface:#ffffff;
+      --surface-2:#eef3f9;
+      --text:#162132;
+      --muted:#5f6f86;
+      --line:#dbe4ef;
+      --accent:#123b7a;
+      --accent-2:#1d5dbf;
+      --shadow:0 18px 40px rgba(14,30,60,.08);
+      --radius:20px;
+      --maxw:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(29,93,191,.09), transparent 30%),
+        radial-gradient(circle at top right, rgba(18,59,122,.08), transparent 28%),
+        var(--bg);
+      line-height:1.6;
+    }
+    a{color:var(--accent-2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(244,247,251,.82);
+      border-bottom:1px solid rgba(219,228,239,.9);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:20px; min-height:72px;
+    }
+    .brand{
+      font-weight:800; letter-spacing:.02em; color:var(--accent);
+      font-size:1.02rem;
+    }
+    .navlinks{
+      display:flex; gap:18px; flex-wrap:wrap; align-items:center;
+      font-size:.96rem;
+    }
+    .contacts-top{padding:34px 0 18px}
+    .contacts-top .content-card{padding:28px 30px}
+    .contact-row{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+    .contact-item{
+      padding:16px 18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--surface-2);
+    }
+    .contact-item strong{
+      display:block;
+      font-size:.8rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .hero{padding:12px 0 30px}
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-card{
+      padding:38px;
+      background:linear-gradient(135deg, rgba(18,59,122,.98), rgba(29,93,191,.88));
+      color:#fff;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card:after{
+      content:"";
+      position:absolute; inset:auto -80px -80px auto;
+      width:240px; height:240px;
+      background:rgba(255,255,255,.07);
+      border-radius:50%;
+    }
+    .hero-layout{
+      display:grid;
+      grid-template-columns:280px 1fr;
+      gap:28px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    .hero-photo img{
+      width:100%;
+      aspect-ratio: 4 / 5;
+      object-fit:cover;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 18px 38px rgba(0,0,0,.18);
+      display:block;
+    }
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:999px;
+      font-size:.86rem;
+      background:rgba(255,255,255,.08);
+      margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(2rem,4vw,3.3rem);
+      line-height:1.05;
+      letter-spacing:-.03em;
+    }
+    .lead{
+      font-size:1.08rem;
+      color:rgba(255,255,255,.92);
+      margin:0;
+      max-width:800px;
+    }
+    .lead p{margin:0 0 14px}
+    .hero-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px 18px;
+      margin-top:24px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.18);
+    }
+    .hero-link{
+      color:#fff;
+      font-weight:700;
+      padding:8px 0;
+      white-space:nowrap;
+    }
+    section{padding:16px 0}
+    .section-title{
+      margin:0 0 16px;
+      font-size:1.65rem;
+      line-height:1.15;
+      letter-spacing:-.02em;
+    }
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    .content-card{padding:28px}
+    .timeline{display:grid; gap:16px}
+    .timeline-item{
+      border-left:3px solid var(--accent-2);
+      padding:2px 0 2px 16px;
+    }
+    .timeline-item .period{font-size:.9rem; color:var(--muted); margin-bottom:4px}
+    .timeline-item h3{margin:0 0 4px; font-size:1.03rem; line-height:1.3}
+    .timeline-item p{margin:0; color:var(--muted)}
+    .list-clean{margin:0; padding-left:20px}
+    .list-clean li{margin:0 0 10px}
+    .pub{padding:16px 0; border-top:1px solid var(--line)}
+    .pub:first-child{border-top:0; padding-top:0}
+    .pub-title{display:block; font-weight:750; margin-bottom:6px; color:var(--text)}
+    .pub-meta{color:var(--muted); font-size:.96rem}
+    .footer{padding:36px 0 60px; color:var(--muted); font-size:.95rem}
+    @media (max-width: 980px){
+      .contact-row{grid-template-columns:1fr 1fr}
+      .hero-layout, .grid-2{grid-template-columns:1fr}
+      .hero-photo{max-width:320px}
+    }
+    @media (max-width: 720px){
+      .container{padding:0 16px}
+      .contact-row{grid-template-columns:1fr}
+      .hero-card, .content-card, .contacts-top .content-card{padding:24px}
+      .nav{align-items:flex-start; flex-direction:column; padding:12px 0}
+      .navlinks{gap:12px; font-size:.92rem}
+      .hero-links{gap:10px 14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">Tiziano Bacci</div>
+      <div class="navlinks">
+        <a href="#contacts">Contacts</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#teaching">Teaching</a>
+      </div>
+    </div>
+  </div>
+
+  <main><section class="hero">
+      <div class="container">
+        <div class="card hero-card">
+          <div class="hero-layout">
+            <div class="hero-photo">
+              <img src="fotoB.jpeg" alt="Portrait of Tiziano Bacci" />
+            </div>
+            <div>
+              <div class="eyebrow">Operations Research · Combinatorial Optimization · MINLP</div>
+              <h1>Tiziano Bacci</h1>
+              <div class="lead">
+                <p>Senior Research Scientist in Operations Research working at IASI-CNR in Rome. His work combines mathematical modeling and algorithm design, with a particular focus on exact methods, branch-and-cut approaches, dynamic programming-based formulations, and mixed-integer nonlinear optimization.</p>
+                <p>His research has addressed problems in unit commitment, block relocation, blood donation planning, logistics systems, and broader combinatorial optimization settings arising in industry and public services.</p>
+              </div>
+              <div class="hero-links">
+                <a class="hero-link" href="CV_Bacci.pdf" target="_blank" rel="noopener">CV</a>
+                <a class="hero-link" href="https://www.iasi.cnr.it/people/tiziano-bacci/" target="_blank" rel="noopener">IASI Profile</a>
+                <a class="hero-link" href="https://www.linkedin.com/in/tiziano-bacci-b4827142/" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="hero-link" href="https://www.iasi.cnr.it/~tbacci/" target="_blank" rel="noopener">Code</a>
+                <a class="hero-link" href="https://www.scopus.com/authid/detail.uri?authorId=57211220708" target="_blank" rel="noopener">Scopus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="contacts-top" id="contacts">
+      <div class="container">
+        <div class="card content-card">
+          <h2 class="section-title">Contacts</h2>
+          <div class="contact-row">
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:tiziano.bacci@iasi.cnr.it">tiziano.bacci@iasi.cnr.it</a>
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:tiziano.bacci@cnr.it">tiziano.bacci@cnr.it</a>
+            </div>
+            <div class="contact-item">
+              <strong>Phone</strong>
+              <a href="tel:+3906499327837">+39 06 4993 27837</a>
+            </div>
+            <div class="contact-item">
+              <strong>Institution</strong>
+              <a href="https://www.iasi.cnr.it/" target="_blank" rel="noopener">IASI-CNR, Via dei Taurini 19, 00185 Rome, Italy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="research">
+      <div class="container grid-2">
+        <div class="card content-card">
+          <h2 class="section-title">Appointments</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="period">2023 – Present</div>
+              <h3>Senior Research Scientist in Operations Research</h3>
+              <p>Institute for Systems Analysis and Computer Science “Antonio Ruberti”, National Research Council of Italy (IASI-CNR), Rome.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="period">2018 – 2023</div>
+              <h3>Research Scientist in Operations Research</h3>
+              <p>IASI-CNR, Rome.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="period">2014 – 2018</div>
+              <h3>Research Fellow in Operations Research</h3>
+              <p>IASI-CNR, Rome.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card content-card">
+          <h2 class="section-title">Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="period">2014 – 2018</div>
+              <h3>PhD in Computer Science, Operations Research</h3>
+              <p>University of Rome Tor Vergata.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="period">2009 – 2012</div>
+              <h3>Master’s Degree in Management Engineering</h3>
+              <p>University of Rome Tor Vergata.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="period">2006 – 2009</div>
+              <h3>Bachelor’s Degree in Management Engineering</h3>
+              <p>University of Rome Tor Vergata.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="publications">
+  <div class="container">
+    <div class="card content-card">
+      <h2 class="section-title">Selected Publications</h2>
+
+      <div class="pub">
+        <span class="pub-title">A Benders decomposition approach for planning home blood donations</span>
+        <div class="pub-meta">Bacci, T., Lanzarone, E., Mattia, S., Ventura, P. · Flexible Services and Manufacturing Journal · 2025</div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">Lagrangian Methods and Dynamic Programming-Based MIP Formulations for the Unit Commitment Problem</span>
+        <div class="pub-meta">Bacci, T., Frangioni, A., Gentile, C. · International Series in Operations Research and Management Science · 2024</div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">New Mixed-Integer Nonlinear Programming Formulations for the Unit Commitment Problems with Ramping Constraints</span>
+        <div class="pub-meta">Bacci, T., Frangioni, A., Gentile, C., Tavlaridis-Gyparakis, K. · Operations Research · 2023</div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">The realization-independent reallocation heuristic for the stochastic container relocation problem</span>
+        <div class="pub-meta">Bacci, T., Mattia, S., Ventura, P. · Soft Computing · 2022</div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">Start-up/Shut-Down MINLP Formulations for the Unit Commitment with Ramp Constraints</span>
+        <div class="pub-meta">Bacci, T., Frangioni, A., Gentile, C. · AIRO Springer Series · 2021</div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">On the benchmark instances for the Bin Packing with Conflicts</span>
+        <div class="pub-meta">Bacci, T., Nicoloso, S. · AIRO Springer Series · 2021</div>
+      </div>
+
+      <div class="pub">
+        <a class="pub-title" href="https://www.sciencedirect.com/science/article/pii/S0377221720304756" target="_blank" rel="noopener">
+          A branch-and-cut algorithm for the restricted Block Relocation Problem
+        </a>
+        <div class="pub-meta">Bacci, T., Mattia, S., Ventura, P. · European Journal of Operational Research · 2020</div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">The bounded beam search algorithm for the Block Relocation Problem</span>
+        <div class="pub-meta">Bacci, T., Mattia, S., Ventura, P. · Computers &amp; Operations Research · 2019</div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">A New Lower Bound for the Block Relocation Problem</span>
+        <div class="pub-meta">Bacci, T., Mattia, S., Ventura, P. · Computational Logistics, Lecture Notes in Computer Science · 2018</div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">Some Complexity Results for the Minimum Blocking Items Problem</span>
+        <div class="pub-meta">Bacci, T., Mattia, S., Ventura, P. · Springer Proceedings in Mathematics and Statistics · 2017</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <section id="projects">
+      <div class="container grid-2">
+        <div class="card content-card">
+          <h2 class="section-title">Research Projects</h2>
+          <ul class="list-clean">
+            <li><strong>ACHILLES</strong> – ecosustAinable effiCient tecH-drIven Last miLE logistics · Local Unit Coordinator for CNR-IASI · PRIN 2022 2022–2026</li>
+            <li><strong>RAISE</strong> – Robotics and AI for Socio-economic Empowerment · Local Unit Coordinator for CNR-IASI · PNRR project 2023–2026</li>
+            <li><strong>UISH</strong> – Urban Intelligence Science Hub for City Network · Participant · 2021–Present</li>
+            <li><strong>CTEMT</strong> – Casa delle Tecnologie Emergenti Matera · Participant · 2019–2026</li>
+            <li><strong>ARPA</strong> – Autonomous and flexible Manufacturing and Augmented Reality techniques for Processes Automation · Participant · PON I &amp; C 2019–2025</li>
+            <li><strong>REMIND</strong> – Reverse Manufacturing INnovation Decision System · Participant · POR-
+FESR Regione Lazio 2020–2023</li>
+            <li><strong>SPORT</strong> – Nonlinear and Combinatorial Aspects of Complex Networks · Participant · PRIN 2017–2020</li>
+            <li><strong>SPORT</strong> – Smart PORt Terminals · Participant · PRIN 2017–2020</li>
+            <li><strong>CONTRAST</strong> – Container Transshipment Station · Participant · POR-
+FESR Regione Lazio 2013–2015</li>
+          </ul>
+        </div>
+
+        <div class="card content-card" id="teaching">
+          <h2 class="section-title">Teaching &amp; Academic Service</h2>
+          <ul class="list-clean">
+            <li><strong>Adjunct Professor</strong>, <em>Integer Programming and Combinatorial Optimization</em>, Sapienza University of Rome · 2024–2025</li>
+            <li><strong>Adjunct Professor</strong>, <em>Metodi e modelli di ottimizzazione discreta 1</em>, University of Rome Tor Vergata · 2018–2021</li>
+            <li><strong>Organizer Committee Member</strong>, 18th EU/ME Workshop on Metaheuristics for a Better World · Rome · 2017</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="container">
+        This website is a static HTML profile page designed for academic presentation and simple public hosting.
+      </div>
+    </section>
+  </main>
+</body>
+</html>
